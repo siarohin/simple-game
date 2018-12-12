@@ -49,11 +49,11 @@ let monstersCaught = 0;
 const keysPress = {};
 
 document.addEventListener('keydown', (e) => {
-  keysPress[e.keyCode] = true;
+  keysPress[e.code] = true;
 }, false);
 
 document.addEventListener('keyup', (e) => {
-  delete keysPress[e.keyCode];
+  delete keysPress[e.code];
 }, false);
 
 
@@ -70,16 +70,16 @@ const reset = () => {
 
 // Update game objects
 const update = (modifier) => {
-  if (38 in keysPress) { // Player holding up
+  if ('ArrowUp' in keysPress) { // Player holding up
     hero.y -= hero.speed * modifier;
   }
-  if (40 in keysPress) { // Player holding down
+  if ('ArrowDown' in keysPress) { // Player holding down
     hero.y += hero.speed * modifier;
   }
-  if (37 in keysPress) { // Player holding left
+  if ('ArrowLeft' in keysPress) { // Player holding left
     hero.x -= hero.speed * modifier;
   }
-  if (39 in keysPress) { // Player holding right
+  if ('ArrowRight' in keysPress) { // Player holding right
     hero.x += hero.speed * modifier;
   }
 
